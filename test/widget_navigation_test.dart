@@ -22,7 +22,7 @@ void main() {
       await tester.pumpWidget(const KaliKootApp());
 
       // Verify branding elements on launch
-      expect(find.text('KALIKOOT'), findsOneWidget);
+      expect(find.byType(Image), findsOneWidget);
       expect(find.text('Small Games. Big Rivalries.'), findsOneWidget);
 
       // Advance periodic timer steps

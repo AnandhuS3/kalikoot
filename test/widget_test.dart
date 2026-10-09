@@ -9,6 +9,6 @@ void main() {
 
   testWidgets('KaliKoot smoke test', (WidgetTester tester) async {
     await tester.pumpWidget(const KaliKootApp());
-    expect(find.text('KALIKOOT'), findsOneWidget);
+    expect(find.text('Small Games. Big Rivalries.'), findsOneWidget);
   });
 }
