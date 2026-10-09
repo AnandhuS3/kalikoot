@@ -14,6 +14,7 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: AppTypography.fontBody,
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: const ColorScheme(
         brightness: Brightness.light,
