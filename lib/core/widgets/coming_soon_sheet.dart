@@ -87,6 +87,7 @@ class ComingSoonSheet extends StatelessWidget {
               child: const Text(
                 'COMING SOON',
                 style: TextStyle(
+                  fontFamily: AppTypography.fontTitle,
                   color: AppColors.white,
                   fontWeight: FontWeight.w900,
                   fontSize: 12,

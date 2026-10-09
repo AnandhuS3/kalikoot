@@ -5,6 +5,7 @@ import '../../../core/models/game_mode.dart';
 import '../../../core/services/feedback_service.dart';
 import '../../../core/services/storage_service.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../core/widgets/chunky_button.dart';
 import '../../../core/widgets/game_result_dialog.dart';
 import '../../../core/widgets/kalikoot_header.dart';
@@ -74,7 +75,7 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
   }
 
   void _startRevealAnimation() {
-    FeedbackService().playHit();
+    FeedbackService().playClash();
     FeedbackService().triggerHapticHeavy();
     _clashAnimController.forward(from: 0.0);
 
@@ -203,9 +204,10 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
                                 child: Text(
                                   _engine.lastResult!.summary,
                                   style: const TextStyle(
+                                    fontFamily: AppTypography.fontTitle,
                                     color: AppColors.white,
                                     fontWeight: FontWeight.w800,
-                                    fontSize: 13,
+                                    fontSize: 14,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -257,8 +259,9 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
                 child: Text(
                   'VS',
                   style: TextStyle(
+                    fontFamily: AppTypography.fontTitle,
                     color: AppColors.yellow,
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -284,16 +287,18 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
             Text(
               name,
               style: TextStyle(
+                fontFamily: AppTypography.fontTitle,
                 color: color,
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: FontWeight.w900,
               ),
             ),
             Text(
               '$hp HP',
               style: const TextStyle(
+                fontFamily: AppTypography.fontTitle,
                 color: AppColors.white,
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: FontWeight.w900,
               ),
             ),
@@ -365,8 +370,9 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
         Text(
           isResolving ? 'CLASH IN PROGRESS...' : prompt,
           style: const TextStyle(
+            fontFamily: AppTypography.fontTitle,
             color: AppColors.primaryNavy,
-            fontSize: 13,
+            fontSize: 14,
             fontWeight: FontWeight.w900,
             letterSpacing: 0.5,
           ),
@@ -438,8 +444,9 @@ class _KalariClashScreenState extends State<KalariClashScreen> with SingleTicker
               const Text(
                 'PASS PHONE TO PLAYER 2',
                 style: TextStyle(
+                  fontFamily: AppTypography.fontTitle,
                   color: AppColors.white,
-                  fontSize: 20,
+                  fontSize: 22,
                   fontWeight: FontWeight.w900,
                 ),
                 textAlign: TextAlign.center,

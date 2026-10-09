@@ -151,7 +151,10 @@ class _ModeCardState extends State<_ModeCard> {
     final depth = _isPressed ? 0.0 : 5.0;
 
     return GestureDetector(
-      onTapDown: (_) => setState(() => _isPressed = true),
+      onTapDown: (_) {
+        setState(() => _isPressed = true);
+        FeedbackService().playTap();
+      },
       onTapUp: (_) => setState(() => _isPressed = false),
       onTapCancel: () => setState(() => _isPressed = false),
       onTap: widget.onTap,
@@ -184,6 +187,7 @@ class _ModeCardState extends State<_ModeCard> {
                     Text(
                       widget.numberText,
                       style: TextStyle(
+                        fontFamily: AppTypography.fontTitle,
                         fontSize: 64,
                         fontWeight: FontWeight.w900,
                         color: widget.badgeColor,
@@ -220,6 +224,7 @@ class _ModeCardState extends State<_ModeCard> {
                 child: Text(
                   widget.badgeLabel,
                   style: const TextStyle(
+                    fontFamily: AppTypography.fontTitle,
                     color: AppColors.white,
                     fontWeight: FontWeight.w900,
                     fontSize: 18,

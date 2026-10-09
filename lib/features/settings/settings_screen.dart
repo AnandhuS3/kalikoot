@@ -237,7 +237,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       child: Text(
         title,
         style: const TextStyle(
-          fontSize: 12,
+          fontFamily: AppTypography.fontTitle,
+          fontSize: 13,
           fontWeight: FontWeight.w900,
           color: AppColors.mutedText,
           letterSpacing: 0.8,
@@ -329,7 +330,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Text(
             value,
             style: const TextStyle(
-              fontSize: 15,
+              fontFamily: AppTypography.fontTitle,
+              fontSize: 16,
               fontWeight: FontWeight.w900,
               color: AppColors.primaryNavy,
             ),

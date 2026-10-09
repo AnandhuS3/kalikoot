@@ -84,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             '${GameInfo.allGames.where((g) => g.isPlayable).length} PLAYABLE',
                             style: const TextStyle(
+                              fontFamily: AppTypography.fontTitle,
                               color: AppColors.mutedText,
                               fontSize: 12,
                               fontWeight: FontWeight.w800,
@@ -176,7 +177,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               value,
               style: const TextStyle(
-                fontSize: 12,
+                fontFamily: AppTypography.fontTitle,
+                fontSize: 13,
                 fontWeight: FontWeight.w900,
                 color: AppColors.primaryNavy,
               ),

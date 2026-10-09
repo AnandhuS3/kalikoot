@@ -141,6 +141,7 @@ class _DifficultySliderState extends State<DifficultySlider> {
           child: Text(
             label,
             style: TextStyle(
+              fontFamily: AppTypography.fontTitle,
               color: isSelected ? AppColors.white : AppColors.primaryNavy,
               fontSize: 12,
               fontWeight: FontWeight.w900,

@@ -151,6 +151,7 @@ class GameResultDialog extends StatelessWidget {
                 child: const Text(
                   '★ NEW HIGH SCORE! ★',
                   style: TextStyle(
+                    fontFamily: AppTypography.fontTitle,
                     color: AppColors.white,
                     fontWeight: FontWeight.w900,
                     fontSize: 12,

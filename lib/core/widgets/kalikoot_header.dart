@@ -108,19 +108,19 @@ class KaliKootHeader extends StatelessWidget {
                   TextSpan(
                     text: 'KALI',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w900,
+                      fontFamily: AppTypography.fontDisplay,
+                      fontSize: 26,
                       color: AppColors.coral,
-                      letterSpacing: -0.5,
+                      letterSpacing: 0.5,
                     ),
                   ),
                   TextSpan(
                     text: 'KOOT',
                     style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w900,
+                      fontFamily: AppTypography.fontDisplay,
+                      fontSize: 26,
                       color: AppColors.primaryNavy,
-                      letterSpacing: -0.5,
+                      letterSpacing: 0.5,
                     ),
                   ),
                 ],
@@ -149,6 +149,7 @@ class KaliKootHeader extends StatelessWidget {
         const Text(
           'Small Games. Big Rivalries.',
           style: TextStyle(
+            fontFamily: AppTypography.fontBody,
             fontSize: 11,
             fontWeight: FontWeight.w700,
             color: AppColors.primaryNavy,

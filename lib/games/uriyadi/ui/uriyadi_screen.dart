@@ -317,6 +317,7 @@ class _UriyadiScreenState extends State<UriyadiScreen> with TickerProviderStateM
               child: Text(
                 'ATTEMPT ${_engine.currentAttemptNumber} / ${_engine.maxAttemptsPerPlayer}',
                 style: const TextStyle(
+                  fontFamily: AppTypography.fontTitle,
                   color: AppColors.white,
                   fontSize: 12,
                   fontWeight: FontWeight.w900,
@@ -464,8 +465,9 @@ class _UriyadiScreenState extends State<UriyadiScreen> with TickerProviderStateM
           Text(
             quality.label,
             style: const TextStyle(
+              fontFamily: AppTypography.fontTitle,
               color: AppColors.white,
-              fontSize: 24,
+              fontSize: 26,
               fontWeight: FontWeight.w900,
               letterSpacing: 1.0,
             ),
@@ -473,8 +475,9 @@ class _UriyadiScreenState extends State<UriyadiScreen> with TickerProviderStateM
           Text(
             '+${quality.points} PTS',
             style: const TextStyle(
+              fontFamily: AppTypography.fontTitle,
               color: AppColors.primaryNavy,
-              fontSize: 16,
+              fontSize: 18,
               fontWeight: FontWeight.w900,
             ),
           ),

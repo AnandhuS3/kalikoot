@@ -110,7 +110,7 @@ class _GoliKaliScreenState extends State<GoliKaliScreen> with SingleTickerProvid
       final impulse = aimDir * power;
 
       _engine.shoot(impulse);
-      FeedbackService().playHit();
+      FeedbackService().playMarble();
       FeedbackService().triggerHapticMedium();
     }
 
@@ -138,7 +138,7 @@ class _GoliKaliScreenState extends State<GoliKaliScreen> with SingleTickerProvid
       if (!mounted) return;
       _isAITurnScheduled = false;
       _engine.executeAIShot();
-      FeedbackService().playHit();
+      FeedbackService().playMarble();
       setState(() {});
     });
   }
@@ -291,6 +291,7 @@ class _GoliKaliScreenState extends State<GoliKaliScreen> with SingleTickerProvid
             child: Text(
               'SHOT ${math.min(_engine.player1Shots + 1, _engine.maxShotsPerPlayer)} / ${_engine.maxShotsPerPlayer}',
               style: const TextStyle(
+                fontFamily: AppTypography.fontTitle,
                 color: AppColors.primaryNavy,
                 fontWeight: FontWeight.w900,
                 fontSize: 11,
@@ -353,8 +354,9 @@ class _GoliKaliScreenState extends State<GoliKaliScreen> with SingleTickerProvid
       child: Text(
         text,
         style: const TextStyle(
+          fontFamily: AppTypography.fontTitle,
           color: AppColors.white,
-          fontSize: 12,
+          fontSize: 13,
           fontWeight: FontWeight.w900,
           letterSpacing: 0.5,
         ),
