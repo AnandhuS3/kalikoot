@@ -1,59 +1,84 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart';
 import 'storage_service.dart';
 
-/// Lightweight, offline audio and haptic feedback service for KaliKoot.
+/// Full-featured audio and haptic feedback service for KaliKoot.
+/// Plays real offline bundled WAV sound effects via AudioPlayer with fallback support.
 class FeedbackService {
   static final FeedbackService _instance = FeedbackService._internal();
   factory FeedbackService() => _instance;
   FeedbackService._internal();
 
   final StorageService _storage = StorageService();
+  AudioPlayer? _player;
 
-  /// Subtle UI tap sound and tactile response
-  void playTap() {
-    if (_storage.soundEnabled) {
+  AudioPlayer get _audioPlayer {
+    _player ??= AudioPlayer();
+    return _player!;
+  }
+
+  Future<void> _playSound(String assetName) async {
+    if (!_storage.soundEnabled) return;
+    try {
+      await _audioPlayer.stop();
+      await _audioPlayer.play(AssetSource('audio/$assetName'));
+    } catch (_) {
+      // In headless test environments or when audio channels aren't bound
       SystemSound.play(SystemSoundType.click);
     }
+  }
+
+  /// Tactile button tap & UI click
+  void playTap() {
+    _playSound('tap.wav');
     if (_storage.hapticEnabled) {
       HapticFeedback.selectionClick();
     }
   }
 
-  /// Successful action / hit sound and impact
+  /// Successful hit / pot smash
   void playHit() {
-    if (_storage.soundEnabled) {
-      SystemSound.play(SystemSoundType.click);
-    }
+    _playSound('hit.wav');
     if (_storage.hapticEnabled) {
       HapticFeedback.mediumImpact();
     }
   }
 
-  /// Miss or failure cue
+  /// Miss / whoosh slide
   void playMiss() {
-    if (_storage.soundEnabled) {
-      SystemSound.play(SystemSoundType.alert);
-    }
+    _playSound('miss.wav');
     if (_storage.hapticEnabled) {
       HapticFeedback.lightImpact();
     }
   }
 
-  /// Round completion feedback
-  void playRoundComplete() {
-    if (_storage.soundEnabled) {
-      SystemSound.play(SystemSoundType.click);
+  /// Glass marble collision clack
+  void playMarble() {
+    _playSound('marble.wav');
+    if (_storage.hapticEnabled) {
+      HapticFeedback.lightImpact();
     }
+  }
+
+  /// Martial weapon clash & spark
+  void playClash() {
+    _playSound('clash.wav');
+    if (_storage.hapticEnabled) {
+      HapticFeedback.heavyImpact();
+    }
+  }
+
+  /// Round completion chime
+  void playRoundComplete() {
+    _playSound('complete.wav');
     if (_storage.hapticEnabled) {
       HapticFeedback.mediumImpact();
     }
   }
 
-  /// Match win celebration
+  /// Match victory celebration fanfare
   void playVictory() {
-    if (_storage.soundEnabled) {
-      SystemSound.play(SystemSoundType.click);
-    }
+    _playSound('victory.wav');
     if (_storage.hapticEnabled) {
       HapticFeedback.heavyImpact();
     }
